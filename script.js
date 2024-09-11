@@ -2,7 +2,7 @@
 // const inp = document.querySelector("input")
 // localStorage.setItem("txt","[]")
 
-const { set } = require("mongoose")
+// const { set } = require("mongoose")
 
 // b.addEventListener("click",(e)=> {
 //     let local = JSON.parse(localStorage.getItem("txt"))
@@ -50,7 +50,13 @@ function loadTasks(){
         localStorage.setItem("tasks","[]")
         localSt = localStorage.getItem("tasks")
     } 
-    return localSt
+    return JSON.parse(localSt)
+}
+
+const addTask = (toDo)=>{
+    storeToDo = loadTasks()
+    storeToDo.push(toDo)
+    localStorage.setItem("tasks", JSON.stringify(storeToDo))
 }
 
 
