@@ -43,7 +43,16 @@ function capitalizeFirstLetter(string) {
     }
     return arry.join(" ")
 }
-cc
+
+function loadTasks(){
+    let localSt = localStorage.getItem("tasks")
+    if (localSt === null){
+        localStorage.setItem("tasks","[]")
+        localSt = localStorage.getItem("tasks")
+    } 
+    return localSt
+}
+
 
 
 
