@@ -53,13 +53,23 @@ function loadTasks(){
     return JSON.parse(localSt)
 }
 
-const addTask = (toDo)=>{
-    storeToDo = loadTasks()
-    storeToDo.push(toDo)
-    localStorage.setItem("tasks", JSON.stringify(storeToDo))
+const addTask = (todo)=>{
+    let storeToDo = loadTasks()
+    storeToDo.push(todo)
+    localStorage.setItem("tasks", JSON.stringify(storeToDo))  
+}
+
+const removeTask = (id) => {
+    let listToDo = loadTasks()
+    let removListToDo = listToDo.filter((todo)=> {return todo.id !== id})
+    localStorage.setItem("tasks", JSON.stringify(removListToDo))
 }
 
 
+addTask({id:1, body:"asckl kjdsvnkld sdkvl"})
+addTask({id:2, body: "fff gggg"})
+console.log(loadTasks());
+removeTask(2)
 
 
 
